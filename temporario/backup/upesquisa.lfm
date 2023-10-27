@@ -1,0 +1,110 @@
+object frmPesquisa: TfrmPesquisa
+  Left = 560
+  Height = 400
+  Top = 508
+  Width = 700
+  Caption = 'pesquisa'
+  ClientHeight = 400
+  ClientWidth = 700
+  Color = clNone
+  Position = poScreenCenter
+  LCLVersion = '2.2.2.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 319
+    Top = 81
+    Width = 700
+    Align = alBottom
+    AlternateColor = clSkyBlue
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 4
+    OnDblClick = DBGrid1DblClick
+  end
+  object cbCampos: TComboBox
+    Left = 8
+    Height = 23
+    Top = 41
+    Width = 208
+    AutoComplete = True
+    AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+    AutoDropDown = True
+    ItemHeight = 15
+    TabOrder = 0
+  end
+  object cbFiltro: TComboBox
+    Left = 232
+    Height = 23
+    Top = 41
+    Width = 136
+    ItemHeight = 15
+    ItemIndex = 0
+    Items.Strings = (
+      'parte'
+      'igual'
+      'inicio'
+    )
+    TabOrder = 1
+    Text = 'parte'
+  end
+  object edtBusca: TEdit
+    Left = 384
+    Height = 23
+    Top = 41
+    Width = 192
+    TabOrder = 2
+  end
+  object btnPesquisa: TButton
+    Left = 592
+    Height = 40
+    Top = 32
+    Width = 80
+    Caption = 'Pesquisa'
+    Default = True
+    OnClick = btnPesquisaClick
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 26
+    Width = 175
+    Caption = 'Selecione o campo para pesquisa'
+    Font.Color = clBlack
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 232
+    Height = 15
+    Top = 26
+    Width = 53
+    Caption = 'Tipo Filtro'
+    Font.Color = clBlack
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 384
+    Height = 15
+    Top = 24
+    Width = 81
+    Caption = 'O que procura?'
+    Font.Color = clBlack
+    ParentColor = False
+    ParentFont = False
+  end
+  object qryConsulta: TZQuery
+    Params = <>
+    Left = 224
+    Top = 120
+  end
+  object DataSource1: TDataSource
+    AutoEdit = False
+    DataSet = qryConsulta
+    Left = 144
+    Top = 120
+  end
+end

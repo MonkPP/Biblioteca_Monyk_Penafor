@@ -1,0 +1,283 @@
+object frmEmprestimos: TfrmEmprestimos
+  Left = 279
+  Height = 279
+  Top = 202
+  Width = 953
+  Caption = 'Empréstimos'
+  ClientHeight = 279
+  ClientWidth = 953
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.2.2.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 256
+    Width = 953
+    Panels = <>
+  end
+  object PageControl1: TPageControl
+    Left = 1
+    Height = 256
+    Top = 0
+    Width = 952
+    ActivePage = TabSheet1
+    TabIndex = 0
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Consulta'
+      ClientHeight = 228
+      ClientWidth = 944
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 576
+        Top = 0
+        Width = 952
+        AutoEdit = False
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'Cód. Emprestimo'
+            Width = 100
+            FieldName = 'emp_codigo'
+          end        
+          item
+            Title.Caption = 'Cód. Usuário'
+            Width = 75
+            FieldName = 'usu_codigo'
+          end        
+          item
+            Title.Caption = 'Nome'
+            Width = 150
+            FieldName = 'nome'
+          end        
+          item
+            Title.Caption = 'Cód. Obra'
+            Width = 60
+            FieldName = 'obr_codigo'
+          end        
+          item
+            Title.Caption = 'Titulo'
+            Width = 150
+            FieldName = 'titulo'
+          end        
+          item
+            Title.Caption = 'Nº Exemplar'
+            Width = 75
+            FieldName = 'exe_numero'
+          end        
+          item
+            Title.Caption = 'Data de empréstimo'
+            Width = 120
+            FieldName = 'data_emprestimo'
+          end        
+          item
+            Title.Caption = 'Data de Devolução'
+            Width = 110
+            FieldName = 'data_prevista_devolucao'
+          end        
+          item
+            Title.Caption = 'Observacao'
+            Width = 150
+            FieldName = 'Observacao'
+          end>
+        DataSource = dsEmprestimo
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Editar'
+      ClientHeight = 228
+      ClientWidth = 944
+      OnContextPopup = TabSheet2ContextPopup
+      object DBNavigator1: TDBNavigator
+        Left = 336
+        Height = 25
+        Top = 184
+        Width = 241
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 241
+        DataSource = dsEmprestimo
+        Options = []
+        TabOrder = 0
+      end
+      object edtObra: TDBEdit
+        Left = 16
+        Height = 23
+        Top = 80
+        Width = 288
+        DataField = 'titulo'
+        DataSource = dsEmprestimo
+        MaxLength = 50
+        TabOrder = 1
+      end
+      object Label1: TLabel
+        Left = 16
+        Height = 15
+        Top = 56
+        Width = 29
+        Caption = 'Obra:'
+        ParentColor = False
+      end
+      object DBMemo1: TDBMemo
+        Left = 584
+        Height = 136
+        Top = 24
+        Width = 342
+        DataField = 'Observacao'
+        DataSource = dsEmprestimo
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 584
+        Height = 15
+        Top = 8
+        Width = 70
+        Caption = 'Observações:'
+        ParentColor = False
+      end
+      object edtUsuario: TDBEdit
+        Left = 208
+        Height = 23
+        Top = 25
+        Width = 296
+        DataField = 'nome'
+        DataSource = dsEmprestimo
+        MaxLength = 50
+        TabOrder = 3
+        OnChange = edtUsuarioChange
+      end
+      object Label3: TLabel
+        Left = 208
+        Height = 15
+        Top = 8
+        Width = 43
+        Caption = 'Usuário:'
+        ParentColor = False
+      end
+      object Label4: TLabel
+        Left = 16
+        Height = 15
+        Top = 112
+        Width = 111
+        Caption = 'Data do empréstimo:'
+        ParentColor = False
+      end
+      object Label5: TLabel
+        Left = 208
+        Height = 15
+        Top = 112
+        Width = 155
+        Caption = 'Data prevista para devolução:'
+        ParentColor = False
+      end
+      object DBDateEdit1: TDBDateEdit
+        Left = 16
+        Height = 23
+        Top = 136
+        Width = 152
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        DateOrder = doNone
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 0
+        OnChange = DBDateEdit1Change
+        TabOrder = 4
+        Text = '25/11/2022'
+        DataField = 'data_emprestimo'
+        DataSource = dsEmprestimo
+      end
+      object DBDateEdit2: TDBDateEdit
+        Left = 208
+        Height = 23
+        Top = 136
+        Width = 152
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        DateOrder = doNone
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 5
+        Text = '08/12/2022'
+        DataField = 'data_prevista_devolucao'
+        DataSource = dsEmprestimo
+      end
+      object Label6: TLabel
+        Left = 384
+        Height = 15
+        Top = 56
+        Width = 52
+        Caption = 'Exemplar:'
+        ParentColor = False
+      end
+      object DBEdit3: TDBEdit
+        Left = 383
+        Height = 23
+        Top = 80
+        Width = 121
+        DataField = 'exe_numero'
+        DataSource = dsEmprestimo
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 6
+      end
+      object Label7: TLabel
+        Left = 16
+        Height = 15
+        Top = 8
+        Width = 126
+        Caption = 'Código do Empréstimo:'
+        ParentColor = False
+      end
+      object DBEdit4: TDBEdit
+        Left = 18
+        Height = 23
+        Top = 24
+        Width = 150
+        DataField = 'emp_codigo'
+        DataSource = dsEmprestimo
+        ReadOnly = True
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 7
+      end
+      object SpeedButton1: TSpeedButton
+        Left = 313
+        Height = 22
+        Top = 80
+        Width = 47
+        Caption = 'Search'
+        OnClick = SpeedButton1Click
+      end
+      object SpeedButton2: TSpeedButton
+        Left = 512
+        Height = 22
+        Top = 25
+        Width = 47
+        Caption = 'Search'
+        OnClick = SpeedButton2Click
+      end
+      object SpeedButton3: TSpeedButton
+        Left = 512
+        Height = 22
+        Top = 80
+        Width = 47
+        Caption = 'Search'
+        OnClick = SpeedButton3Click
+      end
+    end
+  end
+  object dsEmprestimo: TDataSource
+    DataSet = DataModule1.qryEmprestimo
+    OnDataChange = dsEmprestimoDataChange
+    Left = 840
+    Top = 192
+  end
+end

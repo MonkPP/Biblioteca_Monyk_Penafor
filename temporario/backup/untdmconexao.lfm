@@ -1,0 +1,447 @@
+object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 120
+  HorizontalOffset = 444
+  VerticalOffset = 157
+  Width = 630
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=ON'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    Port = 0
+    Database = 'C:\temporario\DbPrincipal.db'
+    Protocol = 'sqlite-3'
+    Left = 32
+    Top = 32
+  end
+  object qryUsuario: TZQuery
+    Connection = ZConnection1
+    UpdateObject = updQryUsuario
+    Active = True
+    SQL.Strings = (
+      'select * from usuario'
+    )
+    Params = <>
+    Left = 96
+    Top = 8
+  end
+  object updQryUsuario: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM usuario'
+      'WHERE'
+      '  ((usuario.usu_codigo IS NULL AND :OLD_usu_codigo IS NULL) OR (usuario.usu_codigo = :OLD_usu_codigo))'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO usuario'
+      '  (usu_codigo, nome, logradouro, numero, complemento, bairro, cidade, uf, '
+      '   cep, telefone, cpf)'
+      'VALUES'
+      '  (:usu_codigo, :nome, :logradouro, :numero, :complemento, :bairro, :cidade, '
+      '   :uf, :cep, :telefone, :cpf)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE usuario SET'
+      '  usu_codigo = :usu_codigo,'
+      '  nome = :nome,'
+      '  logradouro = :logradouro,'
+      '  numero = :numero,'
+      '  complemento = :complemento,'
+      '  bairro = :bairro,'
+      '  cidade = :cidade,'
+      '  uf = :uf,'
+      '  cep = :cep,'
+      '  telefone = :telefone,'
+      '  cpf = :cpf'
+      'WHERE'
+      '  ((usuario.usu_codigo IS NULL AND :OLD_usu_codigo IS NULL) OR (usuario.usu_codigo = :OLD_usu_codigo))'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 96
+    Top = 64
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'usu_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nome'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'logradouro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'numero'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'complemento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bairro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cidade'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'uf'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cep'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'telefone'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cpf'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_usu_codigo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryEditora: TZQuery
+    Connection = ZConnection1
+    UpdateObject = updQryEditora
+    Active = True
+    SQL.Strings = (
+      'select * from editora'
+    )
+    Params = <>
+    Left = 176
+    Top = 8
+  end
+  object updQryEditora: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM editora'
+      'WHERE'
+      '  ((editora.edt_codigo IS NULL AND :OLD_edt_codigo IS NULL) OR (editora.edt_codigo = :OLD_edt_codigo))'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO editora'
+      '  (edt_codigo, nome)'
+      'VALUES'
+      '  (:edt_codigo, :nome)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE editora SET'
+      '  edt_codigo = :edt_codigo,'
+      '  nome = :nome'
+      'WHERE'
+      '  ((editora.edt_codigo IS NULL AND :OLD_edt_codigo IS NULL) OR (editora.edt_codigo = :OLD_edt_codigo))'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 176
+    Top = 64
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'edt_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nome'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_edt_codigo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryAssunto: TZQuery
+    Connection = ZConnection1
+    UpdateObject = updQryAssunto
+    Active = True
+    SQL.Strings = (
+      'select * from assunto'
+    )
+    Params = <>
+    Left = 256
+    Top = 8
+  end
+  object updQryAssunto: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM assunto'
+      'WHERE'
+      '  ((assunto.ass_codigo IS NULL AND :OLD_ass_codigo IS NULL) OR (assunto.ass_codigo = :OLD_ass_codigo))'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO assunto'
+      '  (ass_codigo, descricao)'
+      'VALUES'
+      '  (:ass_codigo, :descricao)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE assunto SET'
+      '  ass_codigo = :ass_codigo,'
+      '  descricao = :descricao'
+      'WHERE'
+      '  ((assunto.ass_codigo IS NULL AND :OLD_ass_codigo IS NULL) OR (assunto.ass_codigo = :OLD_ass_codigo))'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 64
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ass_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'descricao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_ass_codigo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryAutor: TZQuery
+    Connection = ZConnection1
+    UpdateObject = updQryAutor
+    Active = True
+    SQL.Strings = (
+      'select * from autor'
+    )
+    Params = <>
+    Left = 344
+    Top = 8
+  end
+  object updQryAutor: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM autor'
+      'WHERE'
+      '  ((autor.aut_codigo IS NULL AND :OLD_aut_codigo IS NULL) OR (autor.aut_codigo = :OLD_aut_codigo))'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO autor'
+      '  (aut_codigo, nome)'
+      'VALUES'
+      '  (:aut_codigo, :nome)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE autor SET'
+      '  aut_codigo = :aut_codigo,'
+      '  nome = :nome'
+      'WHERE'
+      '  ((autor.aut_codigo IS NULL AND :OLD_aut_codigo IS NULL) OR (autor.aut_codigo = :OLD_aut_codigo))'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 344
+    Top = 64
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'aut_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nome'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_aut_codigo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryObra: TZQuery
+    Connection = ZConnection1
+    UpdateObject = updQryObra
+    Active = True
+    SQL.Strings = (
+      'select * from obra'
+    )
+    Params = <>
+    Left = 416
+    Top = 8
+  end
+  object updQryObra: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM obra'
+      'WHERE'
+      '  ((obra.obr_codigo IS NULL AND :OLD_obr_codigo IS NULL) OR (obra.obr_codigo = :OLD_obr_codigo)) AND'
+      '  obra.edt_codigo = :OLD_edt_codigo'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO obra'
+      '  (obr_codigo, titulo, tipo_obra, edt_codigo)'
+      'VALUES'
+      '  (:obr_codigo, :titulo, :tipo_obra, :edt_codigo)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE obra SET'
+      '  obr_codigo = :obr_codigo,'
+      '  titulo = :titulo,'
+      '  tipo_obra = :tipo_obra,'
+      '  edt_codigo = :edt_codigo'
+      'WHERE'
+      '  ((obra.obr_codigo IS NULL AND :OLD_obr_codigo IS NULL) OR (obra.obr_codigo = :OLD_obr_codigo)) AND'
+      '  obra.edt_codigo = :OLD_edt_codigo'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 416
+    Top = 64
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'obr_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'titulo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'tipo_obra'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'edt_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_obr_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_edt_codigo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryEmprestimo: TZQuery
+    Connection = ZConnection1
+    UpdateObject = updQryEmprestimo
+    Active = True
+    SQL.Strings = (
+      'select emprestimo.*, usuario.nome, usuario.cpf, obra.titulo, exemplar.situacao, exemplar.data_compra'
+      'from emprestimo, usuario, obra, exemplar'
+      'where emprestimo.usu_codigo = usuario.usu_codigo'
+      'and emprestimo.obr_codigo = obra.obr_codigo'
+      'and emprestimo.exe_numero = exemplar.exe_numero'
+    )
+    Params = <>
+    Left = 512
+    Top = 8
+  end
+  object updQryEmprestimo: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM emprestimo'
+      'WHERE'
+      '  ((emprestimo.emp_codigo IS NULL AND :OLD_emp_codigo IS NULL) OR (emprestimo.emp_codigo = :OLD_emp_codigo)) AND'
+      '  emprestimo.usu_codigo = :OLD_usu_codigo AND'
+      '  emprestimo.obr_codigo = :OLD_obr_codigo'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO emprestimo'
+      '  (emp_codigo, usu_codigo, obr_codigo, exe_numero, data_emprestimo, data_prevista_devolucao, '
+      '   Observacao)'
+      'VALUES'
+      '  (:emp_codigo, :usu_codigo, :obr_codigo, :exe_numero, :data_emprestimo, '
+      '   :data_prevista_devolucao, :Observacao)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE emprestimo SET'
+      '  emp_codigo = :emp_codigo,'
+      '  usu_codigo = :usu_codigo,'
+      '  obr_codigo = :obr_codigo,'
+      '  exe_numero = :exe_numero,'
+      '  data_emprestimo = :data_emprestimo,'
+      '  data_prevista_devolucao = :data_prevista_devolucao,'
+      '  Observacao = :Observacao'
+      'WHERE'
+      '  ((emprestimo.emp_codigo IS NULL AND :OLD_emp_codigo IS NULL) OR (emprestimo.emp_codigo = :OLD_emp_codigo)) AND'
+      '  emprestimo.usu_codigo = :OLD_usu_codigo AND'
+      '  emprestimo.obr_codigo = :OLD_obr_codigo'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 512
+    Top = 64
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'emp_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'usu_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'obr_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'exe_numero'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'data_emprestimo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'data_prevista_devolucao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Observacao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_emp_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_usu_codigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_obr_codigo'
+        ParamType = ptUnknown
+      end>
+  end
+end

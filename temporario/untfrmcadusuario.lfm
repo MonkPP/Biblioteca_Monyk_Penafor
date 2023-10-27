@@ -1,0 +1,295 @@
+object frmCadUsuario: TfrmCadUsuario
+  Left = 381
+  Height = 400
+  Top = 150
+  Width = 600
+  Caption = 'frmCadUsuario'
+  ClientHeight = 400
+  ClientWidth = 600
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.2.2.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 377
+    Width = 600
+    Panels = <>
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 175
+    Top = 202
+    Width = 600
+    AutoEdit = False
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Código'
+        Width = 60
+        FieldName = 'usu_codigo'
+      end    
+      item
+        Title.Caption = 'Nome'
+        Width = 200
+        FieldName = 'nome'
+      end    
+      item
+        Title.Caption = 'CPF'
+        Width = 110
+        FieldName = 'cpf'
+      end    
+      item
+        Title.Caption = 'Tel.'
+        Width = 110
+        FieldName = 'telefone'
+      end    
+      item
+        Title.Caption = 'Logradouro'
+        Width = 110
+        FieldName = 'logradouro'
+      end    
+      item
+        Title.Caption = 'Nº'
+        Width = 35
+        FieldName = 'numero'
+      end    
+      item
+        Title.Caption = 'Complemento'
+        Width = 110
+        FieldName = 'complemento'
+      end    
+      item
+        Title.Caption = 'Bairro'
+        Width = 110
+        FieldName = 'bairro'
+      end    
+      item
+        Title.Caption = 'CEP'
+        Width = 70
+        FieldName = 'cep'
+      end    
+      item
+        Title.Caption = 'Cidade'
+        Width = 110
+        FieldName = 'cidade'
+      end    
+      item
+        Title.Caption = 'UF'
+        Width = 25
+        FieldName = 'uf'
+      end>
+    DataSource = dsUsuario
+    TabOrder = 1
+  end
+  object navUsuario: TDBNavigator
+    Left = 176
+    Height = 25
+    Top = 176
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = dsUsuario
+    Options = []
+    TabOrder = 2
+  end
+  object DBEdit1: TDBEdit
+    Left = 8
+    Height = 23
+    Top = 16
+    Width = 360
+    DataField = 'nome'
+    DataSource = dsUsuario
+    MaxLength = 50
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 0
+    Width = 36
+    Caption = 'Nome:'
+    ParentColor = False
+  end
+  object DBEdit2: TDBEdit
+    Left = 392
+    Height = 23
+    Top = 16
+    Width = 200
+    CustomEditMask = True
+    DataField = 'cpf'
+    DataSource = dsUsuario
+    EditMask = '###.###.###-##;0;_'
+    MaxLength = 14
+    TabOrder = 4
+  end
+  object Label2: TLabel
+    Left = 392
+    Height = 15
+    Top = 0
+    Width = 24
+    Caption = 'CPF:'
+    ParentColor = False
+  end
+  object DBEdit3: TDBEdit
+    Left = 8
+    Height = 23
+    Top = 56
+    Width = 200
+    CustomEditMask = True
+    DataField = 'telefone'
+    DataSource = dsUsuario
+    EditMask = '(##)#####-####;0;_'
+    MaxLength = 14
+    TabOrder = 5
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 15
+    Top = 40
+    Width = 20
+    Caption = 'Tel.:'
+    ParentColor = False
+  end
+  object DBEdit4: TDBEdit
+    Left = 8
+    Height = 23
+    Top = 96
+    Width = 296
+    DataField = 'logradouro'
+    DataSource = dsUsuario
+    MaxLength = 50
+    TabOrder = 6
+  end
+  object Label4: TLabel
+    Left = 8
+    Height = 15
+    Top = 80
+    Width = 65
+    Caption = 'Logradouro:'
+    ParentColor = False
+  end
+  object DBEdit5: TDBEdit
+    Left = 320
+    Height = 23
+    Top = 96
+    Width = 80
+    DataField = 'numero'
+    DataSource = dsUsuario
+    MaxLength = 6
+    TabOrder = 7
+  end
+  object Label5: TLabel
+    Left = 320
+    Height = 15
+    Top = 80
+    Width = 17
+    Caption = 'Nº:'
+    ParentColor = False
+  end
+  object DBEdit6: TDBEdit
+    Left = 416
+    Height = 23
+    Top = 96
+    Width = 176
+    DataField = 'complemento'
+    DataSource = dsUsuario
+    MaxLength = 50
+    TabOrder = 8
+  end
+  object DBEdit7: TDBEdit
+    Left = 8
+    Height = 23
+    Top = 144
+    Width = 208
+    DataField = 'bairro'
+    DataSource = dsUsuario
+    MaxLength = 50
+    TabOrder = 9
+  end
+  object DBEdit8: TDBEdit
+    Left = 224
+    Height = 23
+    Top = 144
+    Width = 96
+    DataField = 'cep'
+    DataSource = dsUsuario
+    MaxLength = 8
+    TabOrder = 10
+  end
+  object DBEdit9: TDBEdit
+    Left = 328
+    Height = 23
+    Top = 144
+    Width = 208
+    DataField = 'cidade'
+    DataSource = dsUsuario
+    MaxLength = 50
+    TabOrder = 11
+  end
+  object DBEdit10: TDBEdit
+    Left = 544
+    Height = 23
+    Top = 144
+    Width = 48
+    DataField = 'uf'
+    DataSource = dsUsuario
+    MaxLength = 2
+    TabOrder = 12
+  end
+  object Label6: TLabel
+    Left = 416
+    Height = 15
+    Top = 80
+    Width = 80
+    Caption = 'Complemento:'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 8
+    Height = 15
+    Top = 128
+    Width = 34
+    Caption = 'Bairro:'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 224
+    Height = 15
+    Top = 128
+    Width = 24
+    Caption = 'CEP:'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 328
+    Height = 15
+    Top = 128
+    Width = 40
+    Caption = 'Cidade:'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 544
+    Height = 15
+    Top = 128
+    Width = 17
+    Caption = 'UF:'
+    ParentColor = False
+  end
+  object dsUsuario: TDataSource
+    DataSet = DataModule1.qryUsuario
+    OnStateChange = dsUsuarioStateChange
+    OnDataChange = dsUsuarioDataChange
+    OnUpdateData = dsUsuarioUpdateData
+    Left = 547
+    Top = 321
+  end
+end
